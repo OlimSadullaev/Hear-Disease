@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>AI</title>
+</head>
+
+<body>
+    <!-- <form action="" method=""  class="container my-5">
+        <Legend>Disease checker</Legend>
+        <div>
+            <label for="age" class="form-label">Age</label>
+            <input class="form-control" type="number" min="0" name="age" id="age">
+        </div>
+        <div class="my-3">
+            <span class="d-block">Sex </span>
+
+            <input type="radio" class="form-check-input" name="gender" id="female" value="0">
+            <label for="female" class="form-check-label">Female</label><br>
+
+            <input type="radio" class="form-check-input" name="gender" id="male" value="1">
+            <label for="male" class="form-check-label">Male</label>
+        </div>
+        <div>
+            <label for="ChestPain" class="form-label">Chest Pain type</label>
+            <select name="ChestPain" id="ChestPain" class="form-select">
+                <option value="" selected disabled>choose</option>
+                <option value="0">Typical Angina</option>
+                <option value="1">Atypical Angina</option>
+                <option value="2">Non-anginal pain</option>
+                <option value="3">Asymptomic</option>
+            </select>
+        </div>
+        <div class="my-3">
+            <label for="trestbps" class="form-label">Trestbps</label>
+            <input class="form-control" type="number" min="130" max="140" name="trestbps" id="trestbps">
+        </div>
+        <div>
+            <label for="chol" class="form-label">Chol</label>
+            <input class="form-control" type="number" min="200" name="chol" id="chol">
+        </div>
+        <div class="my-3">
+            <span class="d-block">Fasting Blood Sugar (if above 120 mg/dL)</span>
+
+            <input type="radio" class="form-check-input" name="fbs" id="yes" value="0">
+            <label for="yes" class="form-check-label">Yes</label><br>
+
+            <input type="radio" class="form-check-input" name="fbs" id="No" value="1">
+            <label for="No" class="form-check-label">No</label>
+        </div>
+        <div class="mb-3">
+            <span class="d-block">Resting electrocardiographic results</span>
+
+            <input type="radio" class="form-check-input" name="restecg" id="yes" value="0">
+            <label for="yes" class="form-check-label">Upsloping</label><br>
+
+            <input type="radio" class="form-check-input" name="restecg" id="Flatsloping" value="1">
+            <label for="Flatsloping" class="form-check-label">Flatsloping</label><br>
+
+            <input type="radio" class="form-check-input" name="restecg" id="Downslopins" value="1">
+            <label for="Downslopins" class="form-check-label">Downslopins</label>
+        </div>
+        <div class="mb-3">
+            <span class="d-block">Number of major vessels (0-3) colored by fluoroscopy</span>
+
+            <input type="radio" class="form-check-input" name="ca" id="0" value="0">
+            <label for="0" class="form-check-label">0</label><br>
+
+            <input type="radio" class="form-check-input" name="ca" id="1" value="1">
+            <label for="1" class="form-check-label">1</label><br>
+
+            <input type="radio" class="form-check-input" name="ca" id="2" value="1">
+            <label for="2" class="form-check-label">2</label>
+        </div>
+        <div class="mb-3">
+            <label for="thal" class="form-label">Thallium stress result</label>
+            <input type="number" name="thal" id="thal" min="0" class="form-control">
+        </div>
+
+
+        <button type="submit" class="btn btn-success w-100">
+            Submit
+        </button>
+
+        <button type="reset" class="btn btn-danger w-100 mt-3">
+            Reset
+        </button>
+    </form> -->
+
+    <form action="http://127.0.0.1:8000/heart/" method="GET" class="container my-5">
+        <legend>Disease Checker</legend>
+        <div class="row my-3">
+            <div class="col-xl-6">
+                <label for="age" class="form-label">Age</label>
+                <input class="form-control" type="number" min="0" name="age" id="age" required>
+            </div>
+            <div class="col-xl-6">
+                <label for="trestbps" class="form-label">Resting Blood Pressure (trestbps)</label>
+                <input class="form-control" type="number" min="90" max="200" name="trestbps" id="trestbps" required>
+            </div>
+
+        </div>
+        <div class="row mb-3">
+            <div class="col-xl-6">
+                <label for="chol" class="form-label">Cholesterol Level (chol)</label>
+                <input class="form-control" type="number" min="100" name="chol" id="chol" required>
+            </div>
+            <div class="col-xl-6">
+                <label for="thalach" class="form-label">Thalach</label>
+                <input class="form-control" type="number" min="100" name="thalach" id="thalach" required>
+            </div>
+
+            <div class="col-xl-6">
+                <label for="oldpeak" class="form-label">Oldpeak</label>
+                <input class="form-control" type="number" min="0" name="oldpeak" id="oldpeak" required>
+            </div>
+            <div class="col-xl-6">
+                <label for="ChestPain" class="form-label">Chest Pain Type</label>
+                <select name="cp" id="ChestPain" class="form-select" required>
+                    <option value="" selected disabled>Choose</option>
+                    <option value="0">Typical Angina</option>
+                    <option value="1">Atypical Angina</option>
+                    <option value="2">Non-anginal pain</option>
+                    <option value="3">Asymptomatic</option>
+                </select>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="thal" class="form-label">Thallium Stress Result (thal)</label>
+            <input type="number" name="thal" id="thal" min="0" class="form-control" required>
+        </div>
+        <div class="row mb-5">
+            <div class="col-xl-3">
+                <span class="d-block">Gender</span>
+
+                <input type="radio" class="form-check-input" name="gender" id="female" value="0" required>
+                <label for="female" class="form-check-label">Female</label><br>
+
+                <input type="radio" class="form-check-input" name="gender" id="male" value="1">
+                <label for="male" class="form-check-label">Male</label>
+            </div>
+            <div class="col-xl-3">
+                <span class="d-block">Fasting Blood Sugar (if above 120 mg/dL)</span>
+
+                <input type="radio" class="form-check-input" name="fbs" id="fbs-yes" value="1" required>
+                <label for="fbs-yes" class="form-check-label">Yes</label><br>
+
+                <input type="radio" class="form-check-input" name="fbs" id="fbs-no" value="0">
+                <label for="fbs-no" class="form-check-label">No</label>
+            </div>
+
+            <div class="col-xl-3">
+                <span class="d-block">exang</span>
+
+                <input type="radio" class="form-check-input" name="exang" id="exang-yes" value="1" required>
+                <label for="exang-yes" class="form-check-label">Yes</label><br>
+
+                <input type="radio" class="form-check-input" name="exang" id="exang-no" value="0">
+                <label for="exang-no" class="form-check-label">No</label>
+            </div>
+
+            <div class="col-xl-3">
+                <span class="d-block">Slope</span>
+
+                <input type="radio" class="form-check-input" name="slope" id="slope-yes" value="1" required>
+                <label for="slope-yes" class="form-check-label">Yes</label><br>
+
+                <input type="radio" class="form-check-input" name="slope" id="slope-no" value="0">
+                <label for="slope-no" class="form-check-label">No</label>
+            </div>
+
+            <div class="col-xl-3">
+                <span class="d-block">Resting Electrocardiographic Results restecg</span>
+
+                <input type="radio" class="form-check-input" name="restecg" id="ecg-upsloping" value="0"
+                    required>
+                <label for="ecg-upsloping" class="form-check-label">Upsloping</label><br>
+
+                <input type="radio" class="form-check-input" name="restecg" id="ecg-flatsloping" value="1">
+                <label for="ecg-flatsloping" class="form-check-label">Flatsloping</label><br>
+
+                <input type="radio" class="form-check-input" name="restecg" id="ecg-downsloping" value="2">
+                <label for="ecg-downsloping" class="form-check-label">Downsloping</label>
+            </div>
+            <div class="col-xl-3">
+                <span class="d-block">Number of Major Vessels (0-3) Colored by Fluoroscopy CA</span>
+
+                <input type="radio" class="form-check-input" name="ca" id="ca-0" value="0" required>
+                <label for="ca-0" class="form-check-label">0</label><br>
+
+                <input type="radio" class="form-check-input" name="ca" id="ca-1" value="1">
+                <label for="ca-1" class="form-check-label">1</label><br>
+
+                <input type="radio" class="form-check-input" name="ca" id="ca-2" value="2">
+                <label for="ca-2" class="form-check-label">2</label><br>
+
+                <input type="radio" class="form-check-input" name="ca" id="ca-3" value="3">
+                <label for="ca-3" class="form-check-label">3</label>
+
+            </div>
+        </div>
+
+        
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Your disease result</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Patience clinic condition may lead to the cardiovascular disease.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xl-6">
+                <button type="reset" class="btn btn-danger w-100">
+                    Reset
+                </button>
+            </div>
+            <div class="col-xl-6">
+                <button type="submit" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick>
+                    Submit
+                </button>
+            </div>
+        </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
